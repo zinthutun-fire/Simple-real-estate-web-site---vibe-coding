@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeCove Realty - Luxury Properties</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">VibeCove<span>Realty</span></a>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Find Your <span>Dream Home</span></h1>
+      <p>Discover exceptional properties in the world's most desirable locations. Your perfect space awaits.</p>
+      <form class="hero-search" onsubmit="event.preventDefault(); window.location.href='properties.html'">
+        <input type="text" placeholder="Search by city, neighborhood, or address..." id="hero-search-input">
+        <button type="submit">Search</button>
+      </form>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <h3>200+</h3>
+          <p>Properties Sold</p>
+        </div>
+        <div class="hero-stat">
+          <h3>50+</h3>
+          <p>Happy Clients</p>
+        </div>
+        <div class="hero-stat">
+          <h3>15+</h3>
+          <p>Years Experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Featured Properties</h2>
+        <p>Hand-picked selections of the finest properties on the market.</p>
+        <div class="gold-bar"></div>
+      </div>
+      <div class="property-grid" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Why Choose Us</h2>
+        <p>We deliver exceptional real estate experiences at every step.</p>
+        <div class="gold-bar"></div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <span class="feature-icon">🏆</span>
+          <h3>Expert Guidance</h3>
+          <p>Decades of market knowledge and negotiation expertise working for you.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <span class="feature-icon">🌍</span>
+          <h3>Global Reach</h3>
+          <p>An international network of properties and industry connections.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <span class="feature-icon">💎</span>
+          <h3>Premium Service</h3>
+          <p>White-glove treatment from first tour to final closing.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <span class="feature-icon">📊</span>
+          <h3>Market Insights</h3>
+          <p>Data-driven analysis to help you make informed decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>VibeCove Realty</h3>
+          <p>Luxury real estate brokerage specializing in premium properties across the nation's most coveted markets.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="properties.html">Browse Properties</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Property Types</h4>
+          <ul class="footer-links">
+            <li><a href="properties.html">Houses</a></li>
+            <li><a href="properties.html">Apartments</a></li>
+            <li><a href="properties.html">Penthouse</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@vibecove.com">hello@vibecove.com</a></li>
+            <li><a href="tel:+18885551234">(888) 555-1234</a></li>
+            <li>Los Angeles, CA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 VibeCove Realty. All rights reserved.</span>
+        <span>Designed with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/properties.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const grid = document.getElementById('featured-grid');
+      if (!grid) return;
+      try {
+        const data = await fetchProperties({ badge: 'Featured' });
+        if (data.length === 0) {
+          const all = await fetchProperties();
+          const featured = all.filter(p => p.badge === 'Featured' || p.badge === 'Premium' || p.badge === 'New');
+          grid.innerHTML = featured.slice(0, 3).map(p => createPropertyCard(p)).join('');
+        } else {
+          grid.innerHTML = data.map(p => createPropertyCard(p)).join('');
+        }
+        document.querySelectorAll('#featured-grid .property-card').forEach(card => {
+          card.addEventListener('click', () => {
+            window.location.href = `property-detail.html?id=${card.dataset.id}`;
+          });
+        });
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('#featured-grid .fade-in').forEach(el => observer.observe(el));
+      } catch {}
+    });
+  </script>
+</body>
+</html>

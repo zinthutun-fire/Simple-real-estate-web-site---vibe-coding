@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Detail - VibeCove Realty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">VibeCove<span>Realty</span></a>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <h1>Property Detail</h1>
+    <p><a href="properties.html" style="color: var(--gold);">&larr; Back to Properties</a></p>
+  </section>
+
+  <div class="container" id="property-detail-content">
+    <div class="property-detail">
+      <div class="property-detail-grid">
+        <div>
+          <div class="property-gallery">
+            <div class="property-gallery-main">
+              <img id="gallery-main" src="" alt="">
+            </div>
+            <div class="property-gallery-nav" id="gallery-thumbs"></div>
+          </div>
+          <div class="property-info" style="margin-top: 32px;">
+            <h1 id="detail-title"></h1>
+            <p class="location" id="detail-location"></p>
+            <div class="price" id="detail-price"></div>
+            <div class="property-meta">
+              <div class="meta-item">
+                <div class="value" id="detail-beds"></div>
+                <div class="label">Bedrooms</div>
+              </div>
+              <div class="meta-item">
+                <div class="value" id="detail-baths"></div>
+                <div class="label">Bathrooms</div>
+              </div>
+              <div class="meta-item">
+                <div class="value" id="detail-sqft"></div>
+                <div class="label">Sq Ft</div>
+              </div>
+              <div class="meta-item">
+                <div class="value" id="detail-type"></div>
+                <div class="label">Type</div>
+              </div>
+            </div>
+            <div class="property-description">
+              <h3>Description</h3>
+              <p id="detail-description"></p>
+            </div>
+            <div class="property-amenities">
+              <h3>Amenities</h3>
+              <ul class="amenities-list" id="detail-amenities"></ul>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="contact-agent-card">
+            <h3>Inquire About This Property</h3>
+            <form id="agent-contact-form">
+              <div id="agent-form-content">
+                <input type="hidden" id="agent-property-id" name="property_id" value="">
+                <div class="form-group">
+                  <label for="agent-name">Name</label>
+                  <input type="text" id="agent-name" name="name" required placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                  <label for="agent-email">Email</label>
+                  <input type="email" id="agent-email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                  <label for="agent-phone">Phone</label>
+                  <input type="tel" id="agent-phone" name="phone" placeholder="(555) 123-4567">
+                </div>
+                <div class="form-group">
+                  <label for="agent-message">Message</label>
+                  <textarea id="agent-message" name="message" required placeholder="I'm interested in this property..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+              </div>
+              <div class="form-success" id="agent-form-success">
+                <span class="checkmark">✓</span>
+                <h3>Inquiry Sent!</h3>
+                <p>An agent will contact you shortly.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>VibeCove Realty</h3>
+          <p>Luxury real estate brokerage specializing in premium properties across the nation's most coveted markets.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="properties.html">Browse Properties</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Property Types</h4>
+          <ul class="footer-links">
+            <li><a href="properties.html">Houses</a></li>
+            <li><a href="properties.html">Apartments</a></li>
+            <li><a href="properties.html">Penthouse</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@vibecove.com">hello@vibecove.com</a></li>
+            <li><a href="tel:+18885551234">(888) 555-1234</a></li>
+            <li>Los Angeles, CA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 VibeCove Realty. All rights reserved.</span>
+        <span>Designed with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/properties.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

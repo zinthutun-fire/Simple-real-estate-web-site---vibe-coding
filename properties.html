@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties - VibeCove Realty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">VibeCove<span>Realty</span></a>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <h1>Our Properties</h1>
+    <p>Browse our curated collection of exceptional listings.</p>
+  </section>
+
+  <div class="container">
+    <div class="properties-layout">
+      <aside class="filter-sidebar">
+        <div class="filter-group">
+          <h3>Property Type</h3>
+          <label><input type="checkbox" name="type" value="House"> Houses</label>
+          <label><input type="checkbox" name="type" value="Apartment"> Apartments</label>
+        </div>
+        <div class="filter-group">
+          <h3>Bedrooms</h3>
+          <label><input type="radio" name="beds" value="" checked> Any</label>
+          <label><input type="radio" name="beds" value="1"> 1 Bed</label>
+          <label><input type="radio" name="beds" value="2"> 2 Beds</label>
+          <label><input type="radio" name="beds" value="3"> 3 Beds</label>
+          <label><input type="radio" name="beds" value="4"> 4 Beds</label>
+          <label><input type="radio" name="beds" value="5"> 5+ Beds</label>
+        </div>
+        <div class="filter-group">
+          <h3>Min Price</h3>
+          <input type="range" id="price-range" min="0" max="3000000" step="50000" value="0">
+          <div class="price-range-display">
+            <span id="price-display">$0+</span>
+            <span>$3,000,000</span>
+          </div>
+        </div>
+        <button class="filter-btn" id="apply-filters">Apply Filters</button>
+      </aside>
+      <main>
+        <div class="properties-header">
+          <span class="count" id="property-count">6 properties</span>
+          <div class="sort">
+            <select id="sort-select">
+              <option value="default">Sort by: Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="beds-desc">Most Bedrooms</option>
+              <option value="sqft-desc">Largest</option>
+            </select>
+          </div>
+        </div>
+        <div class="property-grid" id="property-grid"></div>
+        <div class="pagination">
+          <button class="active">1</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>VibeCove Realty</h3>
+          <p>Luxury real estate brokerage specializing in premium properties across the nation's most coveted markets.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="properties.html">Browse Properties</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Property Types</h4>
+          <ul class="footer-links">
+            <li><a href="properties.html">Houses</a></li>
+            <li><a href="properties.html">Apartments</a></li>
+            <li><a href="properties.html">Penthouse</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@vibecove.com">hello@vibecove.com</a></li>
+            <li><a href="tel:+18885551234">(888) 555-1234</a></li>
+            <li>Los Angeles, CA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 VibeCove Realty. All rights reserved.</span>
+        <span>Designed with care.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/properties.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
